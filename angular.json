@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "SWE-Portfolio-angular"
+    }
+  },
+  "defaultProject": "SWE-Portfolio-angular",
+  "cli": {
+    "analytics": "38a58d6b-1f2f-41d2-a6a1-68d1d75a4538"
+  }
 }
