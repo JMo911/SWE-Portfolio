@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +10,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { GamesPageComponent } from './games-page/games-page.component';
+import { ContactFormComponent } from './contact-page/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { GamesPageComponent } from './games-page/games-page.component';
     LandingPageComponent,
     ProjectPageComponent,
     ContactPageComponent,
-    GamesPageComponent
+    GamesPageComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
