@@ -1,0 +1,14 @@
+.signature {
+  font-family: 'Dancing Script', cursive;
+}
+
+.jumbo-container {
+  height: 100vh;
+  display: table-cell;
+  vertical-align: middle;
+
+  .jumbotron {
+    display: inline-block;
+  }
+
+}
