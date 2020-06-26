@@ -11,6 +11,7 @@ import { ProjectPageComponent } from './project-page/project-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { GamesPageComponent } from './games-page/games-page.component';
 import { ContactFormComponent } from './contact-page/contact-form/contact-form.component';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
