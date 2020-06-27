@@ -11,7 +11,8 @@ import { ProjectPageComponent } from './project-page/project-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { GamesPageComponent } from './games-page/games-page.component';
 import { ContactFormComponent } from './contact-page/contact-form/contact-form.component';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { ContactFormComponent } from './contact-page/contact-form/contact-form.c
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

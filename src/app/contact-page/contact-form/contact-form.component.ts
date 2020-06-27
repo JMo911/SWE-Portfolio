@@ -14,7 +14,7 @@ export class ContactFormComponent implements OnInit {
   }
 
   contactForm = new FormGroup({
-    firstName: new FormControl(''),
+    name: new FormControl(''),
     lastName: new FormControl(''),
   });
 
