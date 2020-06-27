@@ -42,4 +42,12 @@ form {
   .button-div {
     text-align: center;
   }
+
+  .invalid-feedback {
+    display: block;
+  }
+
+  .asterisk {
+    display: inline !important;
+  }
 }
