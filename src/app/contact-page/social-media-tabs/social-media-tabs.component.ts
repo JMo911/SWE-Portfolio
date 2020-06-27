@@ -12,4 +12,10 @@ export class SocialMediaTabsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openMediaInNewTab(siteName: string) {
+    if (siteName === "github") {
+      const githubWindow = window.open("https://github.com/JMo911", "_blank");
+      githubWindow.focus();
+    }
+  }
 }
