@@ -21,11 +21,9 @@ export class ContactFormComponent implements OnInit {
     message: ['', Validators.compose([Validators.required, Validators.minLength(10)])],
   });
 
-  // contactForm = new FormGroup({
-  //   name: new FormControl(''),
-  //   email: new FormControl(''),
-  //   message: new FormControl(''),
-  // });
+  get name() { return this.contactForm.get('name'); }
+  get email() { return this.contactForm.get('email'); }
+  get message() { return this.contactForm.get('message'); }
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
