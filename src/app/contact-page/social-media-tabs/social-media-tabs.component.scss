@@ -1,3 +1,14 @@
-mat-icon {
-  margin: 0.5em;
+mat-tab-group {
+  margin-bottom: 4em;
+
+  mat-icon {
+    margin: 0.5em;
+  }
+
+  .tab-content {
+    text-align: center;
+    margin-top: 1em;
+  }
+
 }
+
