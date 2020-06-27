@@ -6,5 +6,48 @@ form {
 
   legend {
     text-align: center;
+    margin-bottom: 1em;
+  }
+
+  label {
+    padding-bottom: 0.5em;
+  }
+
+  input, textarea {
+    border-radius: 0.3em;
+  }
+
+  .btn {
+    border-radius: 0.5em;
+  }
+
+  .name-input {
+    background-image: url(src/assets/account_circle-24px.svg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: 16px 18px;
+    background-position: 98% 50%;
+    cursor: auto;
+  }
+
+  .email-input {
+    background-image: url(src/assets/email-24px.svg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: 16px 18px;
+    background-position: 98% 50%;
+    cursor: auto;
+  }
+
+  .button-div {
+    text-align: center;
+  }
+
+  .invalid-feedback {
+    display: block;
+  }
+
+  .asterisk {
+    display: inline !important;
   }
 }

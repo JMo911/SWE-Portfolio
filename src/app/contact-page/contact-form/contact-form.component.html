@@ -2,24 +2,42 @@
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <legend>Drop me a line here to get in touch</legend>
 
-    <label>
-      Name:
-      <input type="text" formControlName="name">
-    </label>
-    <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+    <div class="row">
+      <div class="form-group col-sm-4 offset-sm-1">
+        <label for="name">Name <span *ngIf="name.invalid && name.touched" class="invalid-feedback asterisk">*</span></label>
+        <input type="name" class="form-control name-input" id="name" name="name" aria-describedby="nameHelp" placeholder="Enter name" formControlName="name">
+        <div *ngIf="name.invalid && name.touched" class="invalid-feedback">
+          Name is required.
+        </div>
+        <!-- <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
 
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfBJREFUWAntVk1OwkAUZkoDKza4Utm61iP0AqyIDXahN2BjwiHYGU+gizap4QDuegWN7lyCbMSlCQjU7yO0TOlAi6GwgJc0fT/fzPfmzet0crmD7HsFBAvQbrcrw+Gw5fu+AfOYvgylJ4TwCoVCs1ardYTruqfj8fgV5OUMSVVT93VdP9dAzpVvm5wJHZFbg2LQ2pEYOlZ/oiDvwNcsFoseY4PBwMCrhaeCJyKWZU37KOJcYdi27QdhcuuBIb073BvTNL8ln4NeeR6NRi/wxZKQcGurQs5oNhqLshzVTMBewW/LMU3TTNlO0ieTiStjYhUIyi6DAp0xbEdgTt+LE0aCKQw24U4llsCs4ZRJrYopB6RwqnpA1YQ5NGFZ1YQ41Z5S8IQQdP5laEBRJcD4Vj5DEsW2gE6s6g3d/YP/g+BDnT7GNi2qCjTwGd6riBzHaaCEd3Js01vwCPIbmWBRx1nwAN/1ov+/drgFWIlfKpVukyYihtgkXNp4mABK+1GtVr+SBhJDbBIubVw+Cd/TDgKO2DPiN3YUo6y/nDCNEIsqTKH1en2tcwA9FKEItyDi3aIh8Gl1sRrVnSDzNFDJT1bAy5xpOYGn5fP5JuL95ZjMIn1ya7j5dPGfv0A5eAnpZUY3n5jXcoec5J67D9q+VuAPM47D3XaSeL4AAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <div class="form-group col-sm-4 offset-sm-1">
+        <label for="email">Email address <span *ngIf="email.invalid && email.touched" class="invalid-feedback asterisk">*</span></label>
+        <input type="email" class="form-control email-input" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+        <div *ngIf="email.invalid && email.touched" class="invalid-feedback">
+          Email is required.
+        </div>
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="exampleTextarea">Message:</label>
-      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    <div class="row">
+      <div class="form-group col-sm-9 offset-sm-1">
+        <label for="message">Message <span *ngIf="message.invalid && message.touched" class="invalid-feedback asterisk">*</span></label>
+        <textarea class="form-control" rows="3" formControlName="message" placeholder="Enter your message here. All feedback and inquiries are welcomed."></textarea>
+        <div *ngIf="message.errors?.minlength && message.touched" class="invalid-feedback">
+          Message must be at least 10 characters.
+        </div>
+        <div *ngIf="message.errors?.required && message.touched" class="invalid-feedback">
+          Message is required.
+        </div>
+      </div>
     </div>
 
-    <button type="submit" [disabled]="!contactForm.valid">Send</button>
+    <div class="button-div offset-sm-1 col-sm-9">
+      <button type="submit" class="btn btn-primary btn-large btn-block" [disabled]="!contactForm.valid">Send</button>
+    </div>
 
   </form>
 </div>
