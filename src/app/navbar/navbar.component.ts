@@ -22,6 +22,10 @@ export class NavbarComponent implements OnInit {
   }
 
   hideNav() {
-    this.showNav = false;
+    if (this.showNav === true) {
+      this.showNav = false;
+    } else {
+      return;
+    }
   }
 }
