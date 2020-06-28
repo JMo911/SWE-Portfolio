@@ -15,7 +15,11 @@
       <div class="form-group col-sm-4 offset-sm-1">
         <label for="email">Email address <span *ngIf="email.invalid && email.touched" class="invalid-feedback asterisk">*</span></label>
         <input type="email" class="form-control email-input" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
-        <div *ngIf="email.invalid && email.touched" class="invalid-feedback">
+
+        <div *ngIf="email.errors?.pattern && email.touched" class="invalid-feedback">
+          Please submit a valid email address.
+        </div>
+        <div *ngIf="email.errors?.required && email.touched" class="invalid-feedback">
           Email is required.
         </div>
         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->

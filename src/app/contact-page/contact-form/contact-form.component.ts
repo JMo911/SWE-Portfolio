@@ -9,15 +9,17 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent implements OnInit {
+  private emailRegex = '^(([^<>()\\[\\]\\\.,;:\\s@"]+(\\.[^<>()\\[\\]\\\.,;:\\s@"]+)*)|(".+"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$';
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    console.log(this.contactForm);
   }
 
   contactForm = this.fb.group({
     name: ['', Validators.required],
-    email: ['', Validators.required],
+    email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailRegex)])],
     message: ['', Validators.compose([Validators.required, Validators.minLength(10)])],
   });
 
