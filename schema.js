@@ -1,3 +1,6 @@
+require('dotenv').config();
+const axios = require('axios');
+
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -6,6 +9,8 @@ const {
   GraphQLList,
   GraphQLNonNull
 } = require('graphql');
+
+const githubEndPoint = "https://api.github.com/graphql";
 
 // Hardcoded Data
 const projects = [
@@ -42,13 +47,39 @@ const ProjectType = new GraphQLObjectType({
 });
 
 // root query
+//   return axios.post(githubEndPoint, {
+//     query: repoQuery(name, repo)
+//   }, {headers: auth});
+const myQuery = `
+{
+  user(login:"JMo911") {
+  pinnedItems(first: 6, types: [REPOSITORY]) {
+    totalCount
+    edges {
+      node {
+        ... on Repository {
+          name
+          description
+          url
+        }
+      }
+    }
+  }
+}
+}
+`
+
+const auth = {Authorization: `bearer ${process.env.GITHUBTOKEN}`}
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
     projects: {
       type: new GraphQLList(ProjectType),
       resolve(parentValue) {
-        return projects;
+        return axios.post(githubEndPoint, {
+          query: myQuery
+        }, {headers: auth})
+        .then(res => res.data);
       }
     }
   }
@@ -57,3 +88,36 @@ const RootQuery = new GraphQLObjectType({
 module.exports = new GraphQLSchema({
   query: RootQuery
 });
+
+// require('dotenv').config();
+// const axios = require('axios');
+
+// const auth = {Authorization: `bearer ${process.env.GITHUBTOKEN}`}
+// const githubEndPoint = "https://api.github.com/graphql";
+
+// function repoQuery(name, repo) {
+//   return `
+//     {
+//       user(login:"JMo911") {
+//         pinnedItems(first: 6, types: [REPOSITORY]) {
+//           totalCount
+//           edges {
+//             node {
+//               ... on Repository {
+//                 name
+//                 description
+//                 url
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `
+// }
+
+// function fetchRepositoryData(name, repo) {
+//   return axios.post(githubEndPoint, {
+//     query: repoQuery(name, repo)
+//   }, {headers: auth});
+// }
