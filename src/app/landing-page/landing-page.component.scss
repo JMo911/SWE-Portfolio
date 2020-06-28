@@ -1,7 +1,3 @@
-.signature {
-  font-family: 'Dancing Script', cursive;
-}
-
 .jumbo-container {
   height: 100vh;
   display: table-cell;
@@ -9,6 +5,18 @@
 
   .jumbotron {
     display: inline-block;
+  }
+
+  .text-info {
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  .signature {
+    font-family: 'Dancing Script', cursive;
   }
 
 }
