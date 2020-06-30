@@ -25,7 +25,8 @@ export class ProjectPageComponent implements OnInit {
         `,
       })
       .valueChanges.subscribe(result => {
-        this.projects = result.data;
+        this.projects = result.data['projects'];
+
       });
   }
 
