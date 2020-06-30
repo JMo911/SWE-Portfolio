@@ -1,1 +1,11 @@
-<p>project-page works!</p>
+<div class="container" fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+  <ng-container *ngFor="let project of projects">
+    <div class="card border-info mb-3" style="max-width: 20rem;" fxFlex="0 1 calc(33.3% - 32px)">
+      <div class="card-header">{{project.name}}</div>
+      <div class="card-body">
+        <p class="card-text">{{project.description}}</p>
+        <a href="{{project.url}}" class="card-link" data-ol-has-click-handler="">Check out {{project.name}} in GitHub</a>
+      </div>
+    </div>
+  </ng-container>
+</div>

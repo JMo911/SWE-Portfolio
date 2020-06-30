@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "server": "nodemon server.js",
+    "client": "ng serve --proxy-config proxy.conf.json",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "private": true,
   "dependencies": {
@@ -21,6 +24,21 @@
     "@angular/platform-browser": "~9.1.1",
     "@angular/platform-browser-dynamic": "~9.1.1",
     "@angular/router": "~9.1.1",
+    "apollo-angular": "^1.9.1",
+    "apollo-angular-link-http": "^1.10.0",
+    "apollo-cache-inmemory": "^1.6.0",
+    "apollo-client": "^2.6.0",
+    "apollo-link": "^1.2.11",
+    "axios": "^0.19.2",
+    "concurrently": "^5.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^15.1.0",
+    "graphql-tag": "^2.10.0",
+    "lodash": "^4.17.15",
+    "nodemon": "^2.0.4",
+    "request-promise": "^4.2.5",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
