@@ -7,7 +7,8 @@ import { GamesPageComponent } from './games-page/games-page.component';
 
 
 const routes: Routes = [
-  { path: 'games', component: GamesPageComponent },
+  { path: 'games', pathMatch: 'full', redirectTo: 'landing' },
+  // { path: 'games', component: GamesPageComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'project', component: ProjectPageComponent },
   { path: 'landing', component: LandingPageComponent },
