@@ -31,14 +31,14 @@ export class ContactFormComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.contactForm.value);
-    axios({
-      method: 'post',
-      url: '/',
-      body: qs.stringify({
-        'form-name': 'contactForm',
-        'form-value': this.contactForm.value
-      }),
-      headers: { "Content-Type": "application/x-www-form-urlencoded"}
-    });
+    // axios({
+    //   method: 'post',
+    //   url: '/',
+    //   body: qs.stringify({
+    //     'form-name': 'contactForm',
+    //     'form-value': this.contactForm.value
+    //   }),
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded"}
+    // });
   }
 }
