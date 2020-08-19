@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" netlify netlify-honeypot="bot-field" data-netlify="true">
+  <form [formGroup]="contactForm" name="portfolioContactForm" data-netlify="true">
     <legend class="text-warning">Drop me a line here to get in touch</legend>
 
     <div class="row">
@@ -14,7 +14,7 @@
 
       <div class="form-group col-sm-4 offset-sm-1">
         <label for="email">Email address <span *ngIf="email.invalid && email.touched" class="invalid-feedback asterisk">*</span></label>
-        <input type="email" class="form-control email-input" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+        <input type="email" class="form-control email-input" aria-describedby="emailHelp" placeholder="Enter email" name="email" formControlName="email">
 
         <div *ngIf="email.errors?.pattern && email.touched" class="invalid-feedback">
           Please submit a valid email address.
@@ -29,7 +29,7 @@
     <div class="row">
       <div class="form-group col-sm-9 offset-sm-1">
         <label for="message">Message <span *ngIf="message.invalid && message.touched" class="invalid-feedback asterisk">*</span></label>
-        <textarea class="form-control" rows="3" formControlName="message" placeholder="Enter your message here. All feedback and inquiries are welcomed."></textarea>
+        <textarea class="form-control" rows="3" name="message" formControlName="message" placeholder="Enter your message here. All feedback and inquiries are welcomed."></textarea>
         <div *ngIf="message.errors?.minlength && message.touched" class="invalid-feedback">
           Message must be at least 10 characters.
         </div>
