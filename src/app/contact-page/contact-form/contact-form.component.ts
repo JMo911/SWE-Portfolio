@@ -14,6 +14,9 @@ const qs = require('qs');
 export class ContactFormComponent implements OnInit {
   private emailRegex = '^(([^<>()\\[\\]\\\.,;:\\s@"]+(\\.[^<>()\\[\\]\\\.,;:\\s@"]+)*)|(".+"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$';
 
+  public formSubmissionSuccess: boolean;
+  public showNotifications = true;
+
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -30,8 +33,9 @@ export class ContactFormComponent implements OnInit {
   get message() { return this.contactForm.get('message'); }
 
   onSubmit() {
+    this.showNotifications = true;
     const body = new HttpParams()
-    .set('form-name', 'contact')
+    .set('form-name', 'portfolioContactForm')
     .append('name', this.contactForm.value.name)
     .append('email', this.contactForm.value.email)
     .append('message', this.contactForm.value.message)
@@ -45,9 +49,16 @@ export class ContactFormComponent implements OnInit {
         } else {
           //backend error. If status is 200, then the message successfully sent
           if (err.status === 200) {
+            this.formSubmissionSuccess = true;
+            this.contactForm.setValue({
+              name: '',
+              email: '',
+              message: ''
+            })
             // alert("Your message has been sent!");
           } else {
             // alert("Something went wrong when sending your message.");
+            this.formSubmissionSuccess = false;
             console.log('Error status:');
             console.log(err.status);
             console.log('Error body:');
@@ -56,5 +67,9 @@ export class ContactFormComponent implements OnInit {
         };
       }
     );
+  }
+
+  toggleNotifications() {
+    this.showNotifications = !this.showNotifications;
   }
 }
