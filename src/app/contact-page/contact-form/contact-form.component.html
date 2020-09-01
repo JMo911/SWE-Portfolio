@@ -1,5 +1,6 @@
 <div class="container">
-  <form [formGroup]="contactForm" action="POST" name="portfolioContactForm" data-netlify="true">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" method="post" name="portfolioContactForm">
+    <input type="hidden" name="form-name" value="portfolioContactForm" />
     <legend class="text-warning">Drop me a line here to get in touch</legend>
 
     <div class="row">
