@@ -46,11 +46,10 @@
 
   </form>
   <div class="alert alert-dismissible alert-success center" *ngIf="formSubmissionSuccess">
-    <button type="button" class="close" data-dismiss="alert" (click)="toggleNotifications()">&times;</button>
     <strong>Thank you!</strong> Your form has been submitted. <a [routerLink]="['/landing']" href="#" class="alert-link" data-ol-has-click-handler="">Back to home page</a>.
   </div>
   <div class="alert alert-dismissible alert-danger center" *ngIf="formSubmissionSuccess === false && showNotifications">
-    <button type="button" class="close" data-dismiss="alert" (click)="toggleNotifications()">&times;</button>There was a problem submitting your request. Please try again.
+    <button type="button" class="close" data-dismiss="alert" (click)="hideNotifications()">&times;</button>There was a problem submitting your request. Please try again.
   </div>
 </div>
 
