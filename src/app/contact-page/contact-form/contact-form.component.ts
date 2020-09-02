@@ -44,7 +44,7 @@ export class ContactFormComponent implements OnInit {
       err => {
         if (err instanceof ErrorEvent) {
           //client side error
-          // alert("Something went wrong when sending your message.");
+          this.formSubmissionSuccess = false;
           console.log(err.error.message);
         } else {
           //backend error. If status is 200, then the message successfully sent
@@ -55,9 +55,7 @@ export class ContactFormComponent implements OnInit {
               email: '',
               message: ''
             })
-            // alert("Your message has been sent!");
           } else {
-            // alert("Something went wrong when sending your message.");
             this.formSubmissionSuccess = false;
             console.log('Error status:');
             console.log(err.status);
@@ -69,7 +67,7 @@ export class ContactFormComponent implements OnInit {
     );
   }
 
-  toggleNotifications() {
-    this.showNotifications = !this.showNotifications;
+  hideNotifications() {
+    this.showNotifications = false;
   }
 }
