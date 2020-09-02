@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'games', pathMatch: 'full', redirectTo: 'landing' },
   // { path: 'games', component: GamesPageComponent },
   { path: 'contact', component: ContactPageComponent },
-  { path: 'project', component: ProjectPageComponent },
+  { path: 'projects', component: ProjectPageComponent },
   { path: 'landing', component: LandingPageComponent },
   { path: '', pathMatch: 'full', redirectTo: 'landing' }
 ];
