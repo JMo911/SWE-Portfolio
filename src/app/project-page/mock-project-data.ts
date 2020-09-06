@@ -6,14 +6,14 @@ export const mockProjects = {
         "edges": [
           {
             "node": {
-              "name": "project3auth",
+              "name": "V-STAT",
               "description": "V-STAT solves transparency problems in the automotive repair process by connecting clients, insurance agents, and mechanics in one portal that shows insurance case information, vehicle repair tasks/status, and a comments thread.",
               "url": "https://github.com/JMo911/project3auth"
             }
           },
           {
             "node": {
-              "name": "PassportReactDemo",
+              "name": "ValetX",
               "description": "ValetX revolutionizes the valet process by creating electronic tickets, handling all transactions, and allowing guests to request their car from within the app. No more paper tickets or awkward interactions with valets.",
               "url": "https://github.com/JMo911/PassportReactDemo"
             }
